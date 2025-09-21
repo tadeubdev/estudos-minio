@@ -68,12 +68,18 @@ docker-compose down
 ### Backend (API)
 - **Node.js 22** + **TypeScript**
 - **Express.js** para API REST
+- **MinIO SDK** para gerenciamento de arquivos
+- **Multer** para upload de arquivos
+- **CORS** para permitir requisições do frontend
 - **Nodemon** para hot reload em desenvolvimento
 - **Multi-stage Docker build** para otimização
 
 ### Frontend (App)
 - **Vue.js 3** + **TypeScript**
 - **Vite** para bundling e dev server (requer Node.js 22+)
+- **Tailwind CSS** para estilização
+- **SweetAlert2** para alertas e confirmações
+- **Axios** para requisições HTTP
 - **Hot Module Replacement** em desenvolvimento
 - **Nginx** para serving em produção
 
@@ -81,6 +87,48 @@ docker-compose down
 - **MinIO** para object storage
 - **Docker** + **Docker Compose**
 - **Nginx** como reverse proxy em produção
+
+## 🚦 API Endpoints
+
+### Arquivos
+- `GET /api/files` - Listar arquivos com paginação
+  - Query params: `page` (número da página), `limit` (arquivos por página)
+- `GET /api/files/:fileName/view` - Visualizar arquivo específico
+- `POST /api/upload` - Upload de imagem (FormData com campo 'file')
+- `DELETE /api/files/:fileName` - Deletar arquivo específico
+
+### Sistema
+- `GET /` - Informações da API
+- `GET /api/health` - Status da API e conexão com MinIO
+
+### Validações
+- Apenas imagens são aceitas (PNG, JPG, JPEG, GIF, WebP)
+- Tamanho máximo: 10MB por arquivo
+- Bucket utilizado: `estudos`
+
+## 🎨 Funcionalidades do Frontend
+
+### Interface Principal
+- ✅ **Título e subtítulo** centralizados
+- ✅ **Lista de arquivos** com thumbnails para imagens
+- ✅ **Informações do arquivo**: nome, tamanho, data de modificação
+- ✅ **Botão de remoção** com confirmação via SweetAlert2
+- ✅ **Loading states** para operações assíncronas
+
+### Sistema de Upload
+- ✅ **Área de drag & drop** (visual)
+- ✅ **Validação de tipo** (apenas imagens)
+- ✅ **Validação de tamanho** (máximo 10MB)
+- ✅ **Preview da imagem** selecionada
+- ✅ **Barra de progresso** durante upload
+- ✅ **Feedback visual** com SweetAlert2
+
+### Funcionalidades Avançadas
+- ✅ **Scroll infinito** para carregar mais arquivos
+- ✅ **Paginação automática** (10 arquivos por vez)
+- ✅ **Cache de imagens** com headers apropriados
+- ✅ **Estados de loading** para todas as operações
+- ✅ **Tratamento de erros** com mensagens amigáveis
 
 ## 🏗️ Comandos Úteis
 
@@ -135,15 +183,47 @@ MINIO_USE_SSL=false
 - `GET /` - Hello World
 - `GET /api/hello` - Hello World da API com timestamp
 
-## 📝 Próximos passos
+## 📝 Status do Projeto
 
+### ✅ Concluído
 1. ✅ Estrutura separada API/Frontend
-2. ✅ Docker containers configurados
-3. ✅ Vue.js app criado
-4. 🔄 Integrar MinIO SDK na API
-5. 🔄 Criar interface Vue.js para upload/download
-6. 🔄 Implementar autenticação
-7. 🔄 Testes automatizados
+2. ✅ Docker containers configurados para dev e produção
+3. ✅ Vue.js app com Tailwind CSS
+4. ✅ Interface completa de gerenciamento de arquivos
+5. ✅ Upload de imagens com validação e preview
+6. ✅ Lista de arquivos com scroll infinito
+7. ✅ Integração completa com MinIO
+8. ✅ Sistema de confirmação para deleções
+9. ✅ API REST completa para gerenciamento de arquivos
+10. ✅ Tratamento de erros e loading states
+
+### 🔄 Melhorias Futuras
+- 🔄 Drag & drop funcional para upload
+- 🔄 Suporte a múltiplos arquivos
+- 🔄 Sistema de pastas/organização
+- 🔄 Busca e filtros
+- 🔄 Autenticação e autorização
+- 🔄 Testes automatizados
+- 🔄 Compressão automática de imagens
+- 🔄 Metadados customizados
+
+## 🚀 Como Testar
+
+1. **Iniciar em desenvolvimento:**
+   ```bash
+   docker-compose -f docker-compose-dev.yml up --build
+   ```
+
+2. **Acessar a aplicação:**
+   - Frontend: http://localhost:5173
+   - API: http://localhost:3000
+   - MinIO Console: http://localhost:9001
+
+3. **Testar funcionalidades:**
+   - Upload de imagens (PNG, JPG, JPEG, GIF)
+   - Visualização da lista de arquivos
+   - Remoção de arquivos com confirmação
+   - Scroll infinito (adicione vários arquivos)
 docker-compose down
 ```
 
