@@ -2,7 +2,9 @@
 
 Aplicação completa com API Node.js/TypeScript, Frontend Vue.js/TypeScript e MinIO, tudo orquestrado com Docker.
 
-## 📁 Estrutura do Projeto
+![MinIO Full Stack](https://raw.githubusercontent.com/tadeubdev/estudos-minio/refs/heads/main/prints/home.png)
+
+## Estrutura do Projeto
 
 ```
 ├── api/                    # API Node.js + TypeScript + Express
@@ -22,7 +24,7 @@ Aplicação completa com API Node.js/TypeScript, Frontend Vue.js/TypeScript e Mi
 └── docker-compose-dev.yml  # Compose para desenvolvimento
 ```
 
-## 🚀 Desenvolvimento
+## Desenvolvimento
 
 Para rodar em modo desenvolvimento:
 
@@ -44,7 +46,7 @@ docker-compose -f docker-compose-dev.yml up --build frontend
 - **MinIO Storage**: http://localhost:9000
 - **MinIO Console**: http://localhost:9001 (usuário: minioadmin, senha: minioadmin)
 
-## 🏭 Produção
+## Produção
 
 Para rodar em modo produção:
 
@@ -63,7 +65,7 @@ docker-compose down
 - **MinIO Storage**: http://localhost:9000
 - **Frontend direto**: http://localhost:8080
 
-## 🔧 Tecnologias
+## Tecnologias
 
 ### Backend (API)
 - **Node.js 22** + **TypeScript**
@@ -106,31 +108,31 @@ docker-compose down
 - Tamanho máximo: 10MB por arquivo
 - Bucket utilizado: `estudos`
 
-## 🎨 Funcionalidades do Frontend
+## Funcionalidades do Frontend
 
 ### Interface Principal
-- ✅ **Título e subtítulo** centralizados
-- ✅ **Lista de arquivos** com thumbnails para imagens
-- ✅ **Informações do arquivo**: nome, tamanho, data de modificação
-- ✅ **Botão de remoção** com confirmação via SweetAlert2
-- ✅ **Loading states** para operações assíncronas
+- **Título e subtítulo** centralizados
+- **Lista de arquivos** com thumbnails para imagens
+- **Informações do arquivo**: nome, tamanho, data de modificação
+- **Botão de remoção** com confirmação via SweetAlert2
+- **Loading states** para operações assíncronas
 
 ### Sistema de Upload
-- ✅ **Área de drag & drop** (visual)
-- ✅ **Validação de tipo** (apenas imagens)
-- ✅ **Validação de tamanho** (máximo 10MB)
-- ✅ **Preview da imagem** selecionada
-- ✅ **Barra de progresso** durante upload
-- ✅ **Feedback visual** com SweetAlert2
+- **Área de drag & drop** (visual)
+- **Validação de tipo** (apenas imagens)
+- **Validação de tamanho** (máximo 10MB)
+- **Preview da imagem** selecionada
+- **Barra de progresso** durante upload
+- **Feedback visual** com SweetAlert2
 
 ### Funcionalidades Avançadas
-- ✅ **Scroll infinito** para carregar mais arquivos
-- ✅ **Paginação automática** (10 arquivos por vez)
-- ✅ **Cache de imagens** com headers apropriados
-- ✅ **Estados de loading** para todas as operações
-- ✅ **Tratamento de erros** com mensagens amigáveis
+- **Scroll infinito** para carregar mais arquivos
+- **Paginação automática** (10 arquivos por vez)
+- **Cache de imagens** com headers apropriados
+- **Estados de loading** para todas as operações
+- **Tratamento de erros** com mensagens amigáveis
 
-## 🏗️ Comandos Úteis
+## Comandos Úteis
 
 ### Desenvolvimento local (sem Docker)
 ```bash
@@ -163,7 +165,7 @@ docker-compose build api
 docker-compose build frontend
 ```
 
-## 🔐 Configuração MinIO
+## Configuração MinIO
 
 ### Credenciais padrão:
 - **Usuário**: minioadmin
@@ -178,36 +180,36 @@ MINIO_SECRET_KEY=minioadmin
 MINIO_USE_SSL=false
 ```
 
-## 🚦 Rotas da API
+## Rotas da API
 
 - `GET /` - Hello World
 - `GET /api/hello` - Hello World da API com timestamp
 
-## 📝 Status do Projeto
+## Status do Projeto
 
-### ✅ Concluído
-1. ✅ Estrutura separada API/Frontend
-2. ✅ Docker containers configurados para dev e produção
-3. ✅ Vue.js app com Tailwind CSS
-4. ✅ Interface completa de gerenciamento de arquivos
-5. ✅ Upload de imagens com validação e preview
-6. ✅ Lista de arquivos com scroll infinito
-7. ✅ Integração completa com MinIO
-8. ✅ Sistema de confirmação para deleções
-9. ✅ API REST completa para gerenciamento de arquivos
-10. ✅ Tratamento de erros e loading states
+### Concluído
+1. Estrutura separada API/Frontend
+2. Docker containers configurados para dev e produção
+3. Vue.js app com Tailwind CSS
+4. Interface completa de gerenciamento de arquivos
+5. Upload de imagens com validação e preview
+6. Lista de arquivos com scroll infinito
+7. Integração completa com MinIO
+8. Sistema de confirmação para deleções
+9. API REST completa para gerenciamento de arquivos
+10. Tratamento de erros e loading states
 
-### 🔄 Melhorias Futuras
-- 🔄 Drag & drop funcional para upload
-- 🔄 Suporte a múltiplos arquivos
-- 🔄 Sistema de pastas/organização
-- 🔄 Busca e filtros
-- 🔄 Autenticação e autorização
-- 🔄 Testes automatizados
-- 🔄 Compressão automática de imagens
-- 🔄 Metadados customizados
+### Melhorias Futuras
+- Drag & drop funcional para upload
+- Suporte a múltiplos arquivos
+- Sistema de pastas/organização
+- Busca e filtros
+- Autenticação e autorização
+- Testes automatizados
+- Compressão automática de imagens
+- Metadados customizados
 
-## 🚀 Como Testar
+## Como Testar
 
 1. **Iniciar em desenvolvimento:**
    ```bash
@@ -233,7 +235,7 @@ docker-compose down
 - **MinIO Console**: http://localhost:80/minio/
 - **MinIO Storage**: http://localhost:9000
 
-## 📁 Estrutura
+## Estrutura
 
 ```
 ├── src/                    # Código fonte da API
@@ -244,7 +246,7 @@ docker-compose down
 └── docker-compose-dev.yml # Compose para desenvolvimento
 ```
 
-## 🔧 Configuração
+## Configuração
 
 ### Variáveis de ambiente MinIO:
 - `MINIO_ROOT_USER`: minioadmin
