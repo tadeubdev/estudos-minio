@@ -4,13 +4,13 @@ services:
   # API Node.js
   api:
     build:
-      context: .
+      context: ./api
       dockerfile: Dockerfile.dev
     container_name: minio-api-dev
     ports:
       - "3000:3000"
     volumes:
-      - .:/app
+      - ./api:/app
       - /app/node_modules
     environment:
       - NODE_ENV=development
@@ -21,6 +21,22 @@ services:
       - MINIO_USE_SSL=false
     depends_on:
       - minio
+    networks:
+      - minio-network
+
+  # Frontend Vue.js
+  frontend:
+    build:
+      context: ./app
+      dockerfile: Dockerfile.dev
+    container_name: minio-frontend-dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./app:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
     networks:
       - minio-network
 

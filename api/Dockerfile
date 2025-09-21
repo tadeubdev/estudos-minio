@@ -24,18 +24,18 @@ RUN apk add --no-cache dumb-init
 
 # Criar usuário não-root
 RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nextjs -u 1001
+RUN adduser -S nodejs -u 1001
 
 # Definir diretório de trabalho
 WORKDIR /app
 
 # Copiar arquivos necessários do stage de build
-COPY --from=builder --chown=nextjs:nodejs /app/dist ./dist
-COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
-COPY --from=builder --chown=nextjs:nodejs /app/package*.json ./
+COPY --from=builder --chown=nodejs:nodejs /app/dist ./dist
+COPY --from=builder --chown=nodejs:nodejs /app/node_modules ./node_modules
+COPY --from=builder --chown=nodejs:nodejs /app/package*.json ./
 
 # Mudar para usuário não-root
-USER nextjs
+USER nodejs
 
 # Expor porta
 EXPOSE 3000

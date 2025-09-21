@@ -4,7 +4,7 @@ services:
   # API Node.js
   api:
     build:
-      context: .
+      context: ./api
       dockerfile: Dockerfile
     container_name: minio-api
     environment:
@@ -16,6 +16,19 @@ services:
       - MINIO_USE_SSL=false
     depends_on:
       - minio
+    networks:
+      - minio-network
+
+  # Frontend Vue.js
+  frontend:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: minio-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
     networks:
       - minio-network
 
@@ -35,18 +48,17 @@ services:
     networks:
       - minio-network
 
-  # Frontend Vue.js (placeholder - será configurado quando o app Vue for criado)
-  frontend:
+  # Nginx Reverse Proxy
+  nginx:
     image: nginx:alpine
-    container_name: minio-frontend
+    container_name: minio-nginx
     ports:
       - "80:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-      # Quando o app Vue for criado, descomente a linha abaixo:
-      # - ./frontend/dist:/usr/share/nginx/html
     depends_on:
+      - frontend
       - api
     networks:
       - minio-network
