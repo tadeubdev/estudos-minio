@@ -1,28 +1,30 @@
-# MinIO Full Stack Application
+# Estudos MinIO
 
-Aplicação completa com API Node.js/TypeScript, Frontend Vue.js/TypeScript e MinIO, tudo orquestrado com Docker.
+Repositório de estudos para aprender MinIO com Node.js, Vue.js e Docker. Aplicação simples para upload e gerenciamento de arquivos.
+
+## Como rodar localmente
+
+1. Clone o repositório
+2. Certifique-se de ter Docker e Docker Compose instalados
+3. Execute o comando abaixo:
+
+```bash
+docker-compose -f docker-compose-dev.yml up --build
+```
+
+### Serviços disponíveis:
+- **Frontend**: http://localhost:5173
+- **API**: http://localhost:3000  
+- **MinIO Console**: http://localhost:9001 (minioadmin/minioadmin)
+
+### Para parar:
+```bash
+docker-compose -f docker-compose-dev.yml down
+```
+
+## Preview
 
 ![MinIO Full Stack](https://raw.githubusercontent.com/tadeubdev/estudos-minio/refs/heads/main/prints/home.png)
-
-## Estrutura do Projeto
-
-```
-├── api/                    # API Node.js + TypeScript + Express
-│   ├── src/
-│   ├── Dockerfile
-│   ├── Dockerfile.dev
-│   └── package.json
-├── app/                    # Frontend Vue.js + TypeScript + Vite
-│   ├── src/
-│   ├── Dockerfile
-│   ├── Dockerfile.dev
-│   └── package.json
-├── nginx/                  # Configurações do Nginx
-│   ├── nginx.conf
-│   └── default.conf
-├── docker-compose.yml      # Compose para produção
-└── docker-compose-dev.yml  # Compose para desenvolvimento
-```
 
 ## Desenvolvimento
 
@@ -90,7 +92,7 @@ docker-compose down
 - **Docker** + **Docker Compose**
 - **Nginx** como reverse proxy em produção
 
-## 🚦 API Endpoints
+## API Endpoints
 
 ### Arquivos
 - `GET /api/files` - Listar arquivos com paginação
