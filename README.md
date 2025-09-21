@@ -66,14 +66,14 @@ docker-compose down
 ## 🔧 Tecnologias
 
 ### Backend (API)
-- **Node.js 18** + **TypeScript**
+- **Node.js 22** + **TypeScript**
 - **Express.js** para API REST
 - **Nodemon** para hot reload em desenvolvimento
 - **Multi-stage Docker build** para otimização
 
 ### Frontend (App)
 - **Vue.js 3** + **TypeScript**
-- **Vite** para bundling e dev server
+- **Vite** para bundling e dev server (requer Node.js 22+)
 - **Hot Module Replacement** em desenvolvimento
 - **Nginx** para serving em produção
 

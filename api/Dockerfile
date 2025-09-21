@@ -1,5 +1,5 @@
 # Multi-stage build
-FROM node:18-alpine as builder
+FROM node:22-alpine as builder
 
 # Definir diretório de trabalho
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Estágio final
-FROM node:18-alpine as production
+FROM node:22-alpine as production
 
 # Instalar dependências do sistema
 RUN apk add --no-cache dumb-init

@@ -1,5 +1,5 @@
 # Multi-stage build para Vue.js
-FROM node:18-alpine as builder
+FROM node:22-alpine as builder
 
 # Definir diretório de trabalho
 WORKDIR /app
